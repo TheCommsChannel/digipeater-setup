@@ -25,8 +25,9 @@ function show_success {
 }
 
 # Ask user if they want to install Hamlib
-read -r -p "Do you want to install Hamlib? [y/n]: " INSTALL_HAMLIB
-echo "You entered: $INSTALL_HAMLIB"
+echo -n "Do you want to install Hamlib? [y/n]: "
+read -n 1 INSTALL_HAMLIB
+echo ""
 
 if [[ $INSTALL_HAMLIB =~ ^[Yy]$ ]]
 then
