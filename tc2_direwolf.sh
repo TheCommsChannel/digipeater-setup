@@ -29,8 +29,8 @@ animate_progress &
 ANIMATE_PID=$!
 
 # Install prerequisites
-sudo apt-get update > /dev/null
-sudo apt-get install -y cmake libasound2-dev libudev-dev git automake libtool texinfo g++ make > /dev/null
+sudo apt-get update
+sudo apt-get install -y cmake libasound2-dev libudev-dev git automake libtool texinfo g++ make
 
 # Stop the animation
 kill $ANIMATE_PID > /dev/null
@@ -49,13 +49,13 @@ read -p "Do you want to install Hamlib? [y/n]: " INSTALL_HAMLIB
 if [ "$INSTALL_HAMLIB" = "y" ] || [ "$INSTALL_HAMLIB" = "Y" ]; then
     # Install Hamlib
     echo "Installing Hamlib..."
-    git clone https://github.com/Hamlib/Hamlib > /dev/null 2>&1
+    git clone https://github.com/Hamlib/Hamlib
     cd Hamlib
-    ./bootstrap > /dev/null
-    ./configure > /dev/null
-    make > /dev/null
-    make check > /dev/null
-    sudo make install > /dev/null
+    ./bootstrap
+    ./configure
+    make
+    make check 
+    sudo make install
     cd ..
     rm -rf Hamlib
     show_success "Hamlib installed!"
@@ -63,15 +63,15 @@ fi
 
 # Install Direwolf
 echo "Installing Direwolf..."
-git clone https://www.github.com/wb2osz/direwolf > /dev/null 2>&1
+git clone https://www.github.com/wb2osz/direwolf
 cd direwolf
-git checkout dev > /dev/null
+git checkout dev 
 mkdir build && cd build
-cmake -DUNITTEST=1 .. > /dev/null
-make -j4 > /dev/null
-make test > /dev/null
-sudo make install > /dev/null
-make install-conf > /dev/null
+cmake -DUNITTEST=1 .. 
+make -j4 
+make test 
+sudo make install 
+make install-conf 
 cd ../..
 rm -rf direwolf
 show_success "Direwolf installed!"
