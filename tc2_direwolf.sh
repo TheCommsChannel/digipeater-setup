@@ -45,8 +45,10 @@ function show_success {
 
 # Ask user if they want to install Hamlib
 read -p "Do you want to install Hamlib? [y/n]: " INSTALL_HAMLIB
+echo "You entered: $INSTALL_HAMLIB"
 
-if [ "$INSTALL_HAMLIB" = "y" ] || [ "$INSTALL_HAMLIB" = "Y" ]; then
+if [[ $INSTALL_HAMLIB =~ ^[Yy]$ ]]
+then
     # Install Hamlib
     echo "Installing Hamlib..."
     git clone https://github.com/Hamlib/Hamlib
