@@ -11,29 +11,10 @@ echo "TC² - TC² - TC² - TC² - TC² - TC² - TC² - TC² - TC² - TC² - TC²
 echo 
 echo "This script will install Direwolf and it's prerequisites" 
 
-# Animation
-function animate_progress {
-    local count=0
-    while true; do
-        count=$(( (count+1) %4 ))
-        printf "\rPlease wait... [%s]" "${spinner[count]}"
-        sleep 0.1
-    done
-}
-
-# Array of spinner characters
-spinner=( "⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏" )
-
-# Start the animation and get the PID of the animation process
-animate_progress &
-ANIMATE_PID=$!
 
 # Install prerequisites
 sudo apt-get update
 sudo apt-get install -y cmake libasound2-dev libudev-dev git automake libtool texinfo g++ make
-
-# Stop the animation
-kill $ANIMATE_PID > /dev/null
 
 echo ""
 echo "Prerequisites installed!"
@@ -44,7 +25,7 @@ function show_success {
 }
 
 # Ask user if they want to install Hamlib
-read -p "Do you want to install Hamlib? [y/n]: " INSTALL_HAMLIB
+read -r -p "Do you want to install Hamlib? [y/n]: " INSTALL_HAMLIB
 echo "You entered: $INSTALL_HAMLIB"
 
 if [[ $INSTALL_HAMLIB =~ ^[Yy]$ ]]
