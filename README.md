@@ -1,3 +1,5 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B1OZ22Z)
+
 # TheCommsChannel Digipeater Setup Script
 This script will install Direwolf and it's prereqs on to your Raspberry Pi (or equiv like Le Potato). This script is mentioned on the following YouTube https://www.youtube.com/@The_Comms_Channel
 
